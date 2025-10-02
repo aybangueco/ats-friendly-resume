@@ -1,69 +1,99 @@
-# The `my-package` Package
-<div align="center">Version 0.1.0</div>
+# ats-friendly-resume v0.1.0
 
-A short description about the project and/or client.
+ATS friendly resume designed for developers. This was for personal use, there are alternatives but I feel like building my own from scratch and make it more ats friendly.
 
-## Template adaptation checklist
+## Quick Start
 
-- [ ] Fill out `README.md`
-  - Change the `my-package` package name, including code snippets
-  - Check section contents and/or delete sections that don't apply
-- [ ] Check and/or replace `LICENSE` by something that suits your needs
-- [ ] Fill out `typst.toml`
-  - See also the [typst/packages README](https://github.com/typst/packages/?tab=readme-ov-file#package-format)
-- [ ] Adapt Repository URLs in `CHANGELOG.md`
-  - Consider only committing that file with your first release, or removing the "Initial Release" part in the beginning
-- [ ] Adapt or deactivate the release workflow in `.github/workflows/release.yml`
-  - to deactivate it, delete that file or remove/comment out lines 2-4 (`on:` and following)
-  - to use the workflow
-    - [ ] check the values under `env:`, particularly `REGISTRY_REPO`
-    - [ ] if you don't have one, [create a fine-grained personal access token](https://github.com/settings/tokens?type=beta) with [only Contents permission](https://stackoverflow.com/a/75116350/371191) for the `REGISTRY_REPO`
-    - [ ] on this repo, create a secret `REGISTRY_TOKEN` (at `https://github.com/[user]/[repo]/settings/secrets/actions`) that contains the so created token
-
-    if configured correctly, whenever you create a tag `v...`, your package will be pushed onto a branch on the `REGISTRY_REPO`, from which you can then create a pull request against [typst/packages](https://github.com/typst/packages/)
-- [ ] remove/replace the example test case
-- [ ] (add your actual code, docs and tests)
-- [ ] remove this section from the README
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on the typst web app. Perhaps a short code example on importing the package and a very simple teaser usage.
+Use these to quickly build your resume
 
 ```typ
-#import "@preview/my-package:0.1.0": *
+#import "@preview/ats-friendly-resume:0.1.0": *
 
-#show: my-show-rule.with()
-#my-func()
+// Your personal information replace mine with yours (pls don't steal my identity)
+#let name = "Ban Gueco"
+#let location = "Gotham, Philippines"
+// #let email = "example@gmail.com"
+// #let phone = "012345672"
+#let linkedin = "linkedin.com/in/example"
+#let github = "github.com/aybangueco"
+#let portfolio = "aybangueco.vercel.app"
+
+#show: resume.with(
+  author: name,
+  author-position: center,
+  // Personal information
+  // Below these lines are optional
+  // Feel free to comment out and remove them
+  location: location,
+  // email: email,
+  // phone: phone,
+  linkedin: linkedin,
+  github: github,
+  portfolio: portfolio,
+  personal-info-position: center,
+  // Document formatting and values
+  // These are already defined by default, feel free to omit or edit them
+  color-enabled: true,
+  text-color: "#000080",
+  font: "New Computer Modern",
+  paper: "us-letter",
+  author-font-size: 20pt,
+  font-size: 10pt,
+  lang: "en",
+)
+
+== Technical Skills
+- *Programming Languages*: TypeScript, JavaScript, Go, Bash, HTML, CSS
+- *Web Technologies*: React, Next.js, Sveltekit, Node.js, Express, Bun, Hono
+- *DevOps & Tools*: Postman, Docker, Git, Github Actions
+
+== Experience
+
+// Experience section
+// tech-used is optional so feel free to omit it.
+
+#work(
+  company: "Meow Solutions",
+  role: "Full Stack Developer",
+  dates: dates-util(start-date: "Sep 2021", end-date: "Present"),
+  location: "Gotham, Philippines",
+)
+- Integrated meow for the cats.
+- Upgraded cars using meow framework.
+
+#work(
+  company: "Wayne Solutions",
+  role: "Batman's Assistant",
+  dates: dates-util(start-date: "Sep 1999"),
+  tech-used: "React | TypeScript | Node.js",
+  location: "Gotham, Philippines",
+)
+- Integrated React to Batmobile
+- Migrated Cobol system to TypeScript
+
+== Projects
+
+// Projects section
+// tech-used is optional so feel free to omit it.
+
+#project(
+  name: "Batmobile Management System",
+  dates: dates-util(start-date: "Sep 2002", end-date: "March 2003"),
+  tech-used: "React | TypeScript | Node.js",
+  url: "github.com/aybangueco/batmobile",
+)
+- Integrated React to Batmobile
+- Migrated Cobol system to TypeScript
+
+== Education
+#edu(
+  institution: "Batman University",
+  location: "Gotham, Philippines",
+  degree: "Bachelor of Science in Faking Degree",
+  dates: dates-util(start-date: "Jun 1995", end-date: "June 1999"),
+)
 ```
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./thumbnail-dark.svg">
-  <img src="./thumbnail-light.svg">
-</picture>
+## Example
 
-### Installation
-
-A step by step guide that will tell you how to get the development environment up and running. This should explain how to clone the repo and where to (maybe a link to the typst documentation on it), along with any pre-requisite software and installation steps.
-
-```
-$ First step
-$ Another step
-$ Final step
-```
-
-## Usage
-
-A more in-depth description of usage. Any template arguments? A complicated example that showcases most if not all of the functions the package provides? This is also an excellent place to signpost the manual.
-
-```typ
-#import "@preview/my-package:0.1.0": *
-
-#let my-complicated-example = ...
-```
-
-## Additional Documentation and Acknowledgments
-
-* Project folder on server:
-* Confluence link:
-* Asana board:
-* etc...
+<img src="./example.png">
