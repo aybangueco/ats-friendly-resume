@@ -1,4 +1,4 @@
-#import "../src/lib.typ": *
+#import "@preview/ats-friendly-resume:0.1.0": *
 
 // Your personal information replace mine with yours (pls don't steal my identity)
 #let name = "Ban Gueco"
