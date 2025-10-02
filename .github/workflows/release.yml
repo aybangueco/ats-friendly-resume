@@ -15,6 +15,7 @@ env:
 jobs:
   release:
     runs-on: ubuntu-latest
+    environment: secret_environment
     steps:
       - name: Checkout
         uses: actions/checkout@v4
